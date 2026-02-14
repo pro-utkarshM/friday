@@ -34,7 +34,7 @@ Use this template to generate the brand-system.md file. Replace all `{placeholde
 
 {logo_description}
 
-**Logo file**: `.claude/skills/pptx-generator/brands/{brand_folder}/assets/logo.png`
+**Logo file**: `~/.friday/workspace/skills/pptx-generator/brands/{brand_folder}/assets/logo.png`
 
 **Usage rules:**
 - Maintain aspect ratio

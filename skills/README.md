@@ -1,10 +1,10 @@
-# Claude Code Second Brain Skills
+# Friday Skills Collection
 
-A collection of custom skills that turn Claude Code into a second brain for knowledge work. These skills demonstrate progressive disclosure of context - there's no magic, just structured knowledge that makes Claude hyper-capable for specific tasks.
+A collection of custom skills that extend Friday's capabilities for knowledge work. These skills demonstrate progressive disclosure of context - there's no magic, just structured knowledge that makes Friday hyper-capable for specific tasks.
 
 ## What This Is
 
-Most people think of Claude Code as a tool for writing and debugging code. These skills extend it into a system for capturing and operationalizing knowledge:
+Friday is more than just a code assistant. These skills extend it into a comprehensive system for capturing and operationalizing knowledge:
 
 - **External integrations** - Connect to MCP servers (Zapier, GitHub, etc.) without context bloat
 - **Video creation** - Programmatic videos with Remotion and React
@@ -13,7 +13,7 @@ Most people think of Claude Code as a tool for writing and debugging code. These
 - **Skill development** - Creating new skills to extend Claude's capabilities further
 - **Brand consistency** - Define your voice and visual identity once, use everywhere
 
-The system works through progressive disclosure: Claude only loads detailed instructions when needed, keeping context efficient while maintaining deep expertise for each domain.
+The system works through progressive disclosure: Friday only loads detailed instructions when needed, keeping context efficient while maintaining deep expertise for each domain.
 
 ---
 
@@ -81,8 +81,8 @@ Connect Claude Code to external MCP servers (Zapier, GitHub, Sequential Thinking
 **Step 1:** Copy the example config to create your own:
 
 ```bash
-cp .claude/skills/mcp-client/references/example-mcp-config.json \
-   .claude/skills/mcp-client/references/mcp-config.json
+cp ~/.friday/workspace/skills/mcp-client/references/example-mcp-config.json \
+   ~/.friday/workspace/skills/mcp-client/references/mcp-config.json
 ```
 
 **Step 2:** Edit `mcp-config.json` with your API keys and servers.
@@ -117,13 +117,13 @@ The config format is identical to Claude Desktop's MCP config:
 
 ```bash
 # List configured servers
-python .claude/skills/mcp-client/scripts/mcp_client.py servers
+python ~/.friday/workspace/skills/mcp-client/scripts/mcp_client.py servers
 
 # List tools from a server (with full schemas)
-python .claude/skills/mcp-client/scripts/mcp_client.py tools zapier
+python ~/.friday/workspace/skills/mcp-client/scripts/mcp_client.py tools zapier
 
 # Call a tool
-python .claude/skills/mcp-client/scripts/mcp_client.py call zapier <tool_name> '{"param": "value"}'
+python ~/.friday/workspace/skills/mcp-client/scripts/mcp_client.py call zapier <tool_name> '{"param": "value"}'
 ```
 
 </details>
