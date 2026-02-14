@@ -10,11 +10,12 @@ build/
 *.out
 /picoclaw
 /picoclaw-test
+/friday
+/friday-test
 
-# Picoclaw specific
-
-# PicoClaw
-.picoclaw/
+# Friday specific
+.friday/
+.picoclaw/  # Keep for backward compatibility during migration
 config.json
 sessions/
 build/

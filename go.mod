@@ -1,4 +1,4 @@
-module github.com/sipeed/picoclaw
+module github.com/pro-utkarshM/friday
 
 go 1.25.7
 

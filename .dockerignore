@@ -1,6 +1,7 @@
 .git
 .gitignore
 build/
+.friday/
 .picoclaw/
 config/
 .env
