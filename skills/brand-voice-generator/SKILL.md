@@ -30,7 +30,7 @@ Generate complete brand configuration files for use with the PPTX Generator and 
 
 Files are created in:
 ```
-.claude/skills/pptx-generator/brands/{brand-name}/
+~/.friday/workspace/skills/pptx-generator/brands/{brand-name}/
 ```
 
 ---
@@ -272,11 +272,11 @@ After generating files:
 
 1. **List created files:**
    ```
-   Glob: .claude/skills/pptx-generator/brands/{brand-name}/*
+   Glob: ~/.friday/workspace/skills/pptx-generator/brands/{brand-name}/*
    ```
 
 2. **Remind about assets:**
-   > "Don't forget to copy your logo file to `.claude/skills/pptx-generator/brands/{brand-name}/assets/`"
+   > "Don't forget to copy your logo file to `~/.friday/workspace/skills/pptx-generator/brands/{brand-name}/assets/`"
 
 3. **Suggest test:**
    > "Try generating a simple presentation with: 'Create a 3-slide presentation for {brand-name} about [topic]'"

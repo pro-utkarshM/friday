@@ -9,9 +9,9 @@ Connect to any MCP server with progressive disclosure - load tool schemas on-dem
 
 ## Skill Location
 
-This skill is located at: `.claude/skills/mcp-client/`
+This skill is located at: `~/.friday/workspace/skills/mcp-client/`
 
-**Script path:** `.claude/skills/mcp-client/scripts/mcp_client.py`
+**Script path:** `~/.friday/workspace/skills/mcp-client/scripts/mcp_client.py`
 
 ## Configuration
 
@@ -21,7 +21,7 @@ The script looks for config in this order:
 3. `.mcp.json` in project root
 4. `~/.claude.json`
 
-**Your config file:** `.claude/skills/mcp-client/references/mcp-config.json`
+**Your config file:** `~/.friday/workspace/skills/mcp-client/references/mcp-config.json`
 
 Edit this file to add your API keys. The example file (`example-mcp-config.json`) is kept as a reference template.
 
@@ -29,17 +29,17 @@ Edit this file to add your API keys. The example file (`example-mcp-config.json`
 
 ## Running Commands
 
-All commands use the script at `.claude/skills/mcp-client/scripts/mcp_client.py`:
+All commands use the script at `~/.friday/workspace/skills/mcp-client/scripts/mcp_client.py`:
 
 ```bash
 # List configured servers
-python .claude/skills/mcp-client/scripts/mcp_client.py servers
+python ~/.friday/workspace/skills/mcp-client/scripts/mcp_client.py servers
 
 # List tools from a server
-python .claude/skills/mcp-client/scripts/mcp_client.py tools <server_name>
+python ~/.friday/workspace/skills/mcp-client/scripts/mcp_client.py tools <server_name>
 
 # Call a tool
-python .claude/skills/mcp-client/scripts/mcp_client.py call <server> <tool> '{"arg": "value"}'
+python ~/.friday/workspace/skills/mcp-client/scripts/mcp_client.py call <server> <tool> '{"arg": "value"}'
 ```
 
 ## Workflow
@@ -61,23 +61,23 @@ python .claude/skills/mcp-client/scripts/mcp_client.py call <server> <tool> '{"a
 
 ```bash
 # 1. List servers to confirm Zapier is configured
-python .claude/skills/mcp-client/scripts/mcp_client.py servers
+python ~/.friday/workspace/skills/mcp-client/scripts/mcp_client.py servers
 
 # 2. List Zapier tools
-python .claude/skills/mcp-client/scripts/mcp_client.py tools zapier
+python ~/.friday/workspace/skills/mcp-client/scripts/mcp_client.py tools zapier
 
 # 3. Call a Zapier tool
-python .claude/skills/mcp-client/scripts/mcp_client.py call zapier <tool_name> '{"param": "value"}'
+python ~/.friday/workspace/skills/mcp-client/scripts/mcp_client.py call zapier <tool_name> '{"param": "value"}'
 ```
 
 ## Example: Sequential Thinking
 
 ```bash
 # 1. List tools
-python .claude/skills/mcp-client/scripts/mcp_client.py tools sequential-thinking
+python ~/.friday/workspace/skills/mcp-client/scripts/mcp_client.py tools sequential-thinking
 
 # 2. Use sequential thinking
-python .claude/skills/mcp-client/scripts/mcp_client.py call sequential-thinking sequentialthinking '{"thought": "Breaking down the problem...", "thoughtNumber": 1, "totalThoughts": 5, "nextThoughtNeeded": true}'
+python ~/.friday/workspace/skills/mcp-client/scripts/mcp_client.py call sequential-thinking sequentialthinking '{"thought": "Breaking down the problem...", "thoughtNumber": 1, "totalThoughts": 5, "nextThoughtNeeded": true}'
 ```
 
 ## Config Format

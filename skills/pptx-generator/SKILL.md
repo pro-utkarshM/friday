@@ -23,7 +23,7 @@ Generate professional, on-brand presentation slides using python-pptx. This skil
 - **Slide Editing** - Modify existing PPTX files
 - **Layout Management** - Create, edit, update cookbook layouts
 
-**IMPORTANT:** All skill resources are in `.claude/skills/pptx-generator/`. Always use Glob patterns starting with `.claude/skills/pptx-generator/` to find files.
+**IMPORTANT:** All skill resources are in `~/.friday/workspace/skills/pptx-generator/`. Always use Glob patterns starting with `~/.friday/workspace/skills/pptx-generator/` to find files.
 
 ---
 
@@ -50,7 +50,7 @@ This prevents token limit errors and catches quality issues early.
 **Before generating slides, check if any brands exist.**
 
 ```
-Glob: .claude/skills/pptx-generator/brands/*/brand.json
+Glob: ~/.friday/workspace/skills/pptx-generator/brands/*/brand.json
 ```
 
 **If NO brands found (only `template/` exists):**
@@ -73,9 +73,9 @@ When no brands exist or user requests a new brand:
 ### Step 1: Read the Template
 
 ```
-Read: .claude/skills/pptx-generator/brands/template/README.md
-Read: .claude/skills/pptx-generator/brands/template/brand.json
-Read: .claude/skills/pptx-generator/brands/template/config.json
+Read: ~/.friday/workspace/skills/pptx-generator/brands/template/README.md
+Read: ~/.friday/workspace/skills/pptx-generator/brands/template/brand.json
+Read: ~/.friday/workspace/skills/pptx-generator/brands/template/config.json
 ```
 
 ### Step 2: Gather Brand Information
@@ -99,7 +99,7 @@ Ask the user for (or extract from provided materials):
 
 1. **Create the brand folder:**
    ```bash
-   mkdir -p .claude/skills/pptx-generator/brands/{brand-name}
+   mkdir -p ~/.friday/workspace/skills/pptx-generator/brands/{brand-name}
    ```
 
 2. **Create brand.json** with the gathered values:
@@ -162,7 +162,7 @@ Ask the user for (or extract from provided materials):
 
 After creating the brand, verify with:
 ```
-Glob: .claude/skills/pptx-generator/brands/{brand-name}/*
+Glob: ~/.friday/workspace/skills/pptx-generator/brands/{brand-name}/*
 ```
 
 Then proceed to slide generation.
@@ -195,21 +195,21 @@ User wants to create, edit, or improve layout templates.
 
 1. **List available brands:**
    ```
-   Glob: .claude/skills/pptx-generator/brands/*/brand.json
+   Glob: ~/.friday/workspace/skills/pptx-generator/brands/*/brand.json
    ```
    Extract unique brand names from paths (e.g., `brands/rasmus/...` → "rasmus")
 
 2. **Read the brand configuration files:**
    ```
-   Read: .claude/skills/pptx-generator/brands/{brand-name}/brand.json
-   Read: .claude/skills/pptx-generator/brands/{brand-name}/config.json
+   Read: ~/.friday/workspace/skills/pptx-generator/brands/{brand-name}/brand.json
+   Read: ~/.friday/workspace/skills/pptx-generator/brands/{brand-name}/config.json
    ```
    - `brand.json` - Colors, fonts, assets
    - `config.json` - Output directory, generation settings
 
 3. **Read supporting markdown files for context:**
    ```
-   Glob: .claude/skills/pptx-generator/brands/{brand-name}/*.md
+   Glob: ~/.friday/workspace/skills/pptx-generator/brands/{brand-name}/*.md
    ```
    These provide voice, tone, and design philosophy.
 
@@ -228,7 +228,7 @@ This step is critical for making informed layout decisions. You must understand 
 
 **Step 2a: Discover all layouts:**
 ```
-Glob: .claude/skills/pptx-generator/cookbook/*.py
+Glob: ~/.friday/workspace/skills/pptx-generator/cookbook/*.py
 ```
 
 **Step 2b: Read EVERY layout file** (not just one or two):
@@ -610,16 +610,16 @@ EOF
 **IF heredoc fails (Windows issues): Use temp directory:**
 ```bash
 # Create temp directory if needed
-mkdir -p .claude/skills/pptx-generator/.tmp
+mkdir -p ~/.friday/workspace/skills/pptx-generator/.tmp
 
 # Write script to temp directory
-# (create file at .claude/skills/pptx-generator/.tmp/gen.py)
+# (create file at ~/.friday/workspace/skills/pptx-generator/.tmp/gen.py)
 
 # Execute
-uv run --with python-pptx==1.0.2 python .claude/skills/pptx-generator/.tmp/gen.py
+uv run --with python-pptx==1.0.2 python ~/.friday/workspace/skills/pptx-generator/.tmp/gen.py
 
 # MANDATORY: Clean up immediately after execution
-rm .claude/skills/pptx-generator/.tmp/gen.py
+rm ~/.friday/workspace/skills/pptx-generator/.tmp/gen.py
 ```
 
 **CRITICAL: Never create Python files in the repository root.** Always use heredoc or temp directory within the skill folder.
@@ -780,7 +780,7 @@ Same as Mode 1 - read brand.json, config.json, and tone-of-voice.md.
 
 **Discover carousel-specific layouts:**
 ```
-Glob: .claude/skills/pptx-generator/cookbook/carousels/*.py
+Glob: ~/.friday/workspace/skills/pptx-generator/cookbook/carousels/*.py
 ```
 
 **Available carousel layouts:**
@@ -876,7 +876,7 @@ When user requests a new layout type:
 
 1. **Study existing layouts for patterns:**
    ```
-   Glob: .claude/skills/pptx-generator/cookbook/*.py
+   Glob: ~/.friday/workspace/skills/pptx-generator/cookbook/*.py
    ```
    Read 2-3 layouts to understand:
    - Code structure and imports
@@ -993,7 +993,7 @@ When user requests a new layout type:
 
 4. **Save to cookbook:**
    ```
-   .claude/skills/pptx-generator/cookbook/{layout-name}-slide.py
+   ~/.friday/workspace/skills/pptx-generator/cookbook/{layout-name}-slide.py
    ```
 
 5. **Test by generating** a sample with the new layout
@@ -1002,7 +1002,7 @@ When user requests a new layout type:
 
 1. **Find the layout:**
    ```
-   Glob: .claude/skills/pptx-generator/cookbook/*{name}*.py
+   Glob: ~/.friday/workspace/skills/pptx-generator/cookbook/*{name}*.py
    ```
 
 2. **Read and understand current structure** including the frontmatter
@@ -1051,7 +1051,7 @@ When asked to improve layout quality:
 
 Simply remove the file:
 ```bash
-rm .claude/skills/pptx-generator/cookbook/{layout-name}.py
+rm ~/.friday/workspace/skills/pptx-generator/cookbook/{layout-name}.py
 ```
 
 ---
@@ -1132,7 +1132,7 @@ slide.shapes.add_picture(
 
 To see all available layouts:
 ```bash
-uv run .claude/skills/pptx-generator/generate-cookbook-preview.py
+uv run ~/.friday/workspace/skills/pptx-generator/generate-cookbook-preview.py
 ```
 
 This generates `cookbook-preview.pptx` with every layout.
@@ -1146,7 +1146,7 @@ This generates `cookbook-preview.pptx` with every layout.
 - [ ] Read config.json for output directory and settings
 - [ ] Read markdown files for voice/tone
 - [ ] **Read ALL cookbook layout frontmatters** (first 40 lines of each .py):
-  - [ ] Glob all `.claude/skills/pptx-generator/cookbook/*.py`
+  - [ ] Glob all `~/.friday/workspace/skills/pptx-generator/cookbook/*.py`
   - [ ] Read every file to extract `# /// layout` blocks
   - [ ] Build understanding of all `best_for`, `avoid_when`, limits
 - [ ] **Then select layouts** based on complete knowledge:
