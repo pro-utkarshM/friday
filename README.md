@@ -43,12 +43,12 @@ make install
 
 ## Docker Compose
 
-You can also run PicoClaw using Docker Compose without installing anything locally.
+You can also run Friday using Docker Compose without installing anything locally.
 
 ```bash
 # 1. Clone this repo
 git clone https://github.com/pro-utkarshM/friday.git
-cd picoclaw
+cd friday
 
 # 2. Set your API keys
 cp config/config.example.json config/config.json
@@ -58,7 +58,7 @@ vim config/config.json      # Set DISCORD_BOT_TOKEN, API keys, etc.
 docker compose --profile gateway up -d
 
 # 4. Check logs
-docker compose logs -f picoclaw-gateway
+docker compose logs -f friday-gateway
 
 # 5. Stop
 docker compose --profile gateway down
@@ -68,10 +68,10 @@ docker compose --profile gateway down
 
 ```bash
 # Ask a question
-docker compose run --rm picoclaw-agent -m "What is 2+2?"
+docker compose run --rm friday-agent -m "What is 2+2?"
 
 # Interactive mode
-docker compose run --rm picoclaw-agent
+docker compose run --rm friday-agent
 ```
 
 ### Rebuild
@@ -84,23 +84,23 @@ docker compose --profile gateway up -d
 ### 🚀 Quick Start
 
 > [!TIP]
-> Set your API key in `~/.picoclaw/config.json`.
+> Set your API key in `~/.friday/config.json`.
 > Get API keys: [OpenRouter](https://openrouter.ai/keys) (LLM) · [Zhipu](https://open.bigmodel.cn/usercenter/proj-mgmt/apikeys) (LLM)
 > Web search is **optional** - get free [Brave Search API](https://brave.com/search/api) (2000 free queries/month) or use built-in auto fallback.
 
 **1. Initialize**
 
 ```bash
-picoclaw onboard
+friday onboard
 ```
 
-**2. Configure** (`~/.picoclaw/config.json`)
+**2. Configure** (`~/.friday/config.json`)
 
 ```json
 {
   "agents": {
     "defaults": {
-      "workspace": "~/.picoclaw/workspace",
+      "workspace": "~/.friday/workspace",
       "model": "glm-4.7",
       "max_tokens": 8192,
       "temperature": 0.7,
@@ -139,7 +139,7 @@ picoclaw onboard
 **4. Chat**
 
 ```bash
-picoclaw agent -m "What is 2+2?"
+friday agent -m "What is 2+2?"
 ```
 
 That's it! You have a working AI assistant in 2 minutes.
@@ -148,7 +148,7 @@ That's it! You have a working AI assistant in 2 minutes.
 
 ## Chat Apps
 
-Talk to your picoclaw through Telegram, Discord, or DingTalk
+Talk to your friday through Telegram, Discord, or DingTalk
 
 | Channel      | Setup                      |
 | ------------ | -------------------------- |
@@ -183,7 +183,7 @@ Talk to your picoclaw through Telegram, Discord, or DingTalk
 **3. Run**
 
 ```bash
-picoclaw gateway
+friday gateway
 ```
 
 </details>
@@ -231,21 +231,21 @@ picoclaw gateway
 **6. Run**
 
 ```bash
-picoclaw gateway
+friday gateway
 ```
 
 </details>
 
 ## Configuration
 
-Config file: `~/.picoclaw/config.json`
+Config file: `~/.friday/config.json`
 
 ### Workspace Layout
 
-PicoClaw stores data in your configured workspace (default: `~/.picoclaw/workspace`):
+Friday stores data in your configured workspace (default: `~/.friday/workspace`):
 
 ```
-~/.picoclaw/workspace/
+~/.friday/workspace/
 ├── sessions/          # Conversation sessions and history
 ├── memory/           # Long-term memory (MEMORY.md)
 ├── state/            # Persistent state (last channel, etc.)
@@ -261,7 +261,7 @@ PicoClaw stores data in your configured workspace (default: `~/.picoclaw/workspa
 
 ### Security Sandbox
 
-PicoClaw runs in a sandboxed environment by default. The agent can only access files and execute commands within the configured workspace.
+Friday runs in a sandboxed environment by default. The agent can only access files and execute commands within the configured workspace.
 
 #### Default Configuration
 
@@ -269,7 +269,7 @@ PicoClaw runs in a sandboxed environment by default. The agent can only access f
 {
   "agents": {
     "defaults": {
-      "workspace": "~/.picoclaw/workspace",
+      "workspace": "~/.friday/workspace",
       "restrict_to_workspace": true
     }
   }
@@ -278,7 +278,7 @@ PicoClaw runs in a sandboxed environment by default. The agent can only access f
 
 | Option | Default | Description |
 |--------|---------|-------------|
-| `workspace` | `~/.picoclaw/workspace` | Working directory for the agent |
+| `workspace` | `~/.friday/workspace` | Working directory for the agent |
 | `restrict_to_workspace` | `true` | Restrict file/command access to workspace |
 
 #### Protected Tools
@@ -353,7 +353,7 @@ All paths share the same workspace restriction — there's no way to bypass the 
 
 ### Heartbeat (Periodic Tasks)
 
-PicoClaw can perform periodic tasks automatically. Create a `HEARTBEAT.md` file in your workspace:
+Friday can perform periodic tasks automatically. Create a `HEARTBEAT.md` file in your workspace:
 
 ```markdown
 # Periodic Tasks
@@ -455,7 +455,7 @@ The subagent has access to tools (message, web_search, etc.) and can communicate
 {
   "agents": {
     "defaults": {
-      "workspace": "~/.picoclaw/workspace",
+      "workspace": "~/.friday/workspace",
       "model": "glm-4.7",
       "max_tokens": 8192,
       "temperature": 0.7,
@@ -474,7 +474,7 @@ The subagent has access to tools (message, web_search, etc.) and can communicate
 **3. Run**
 
 ```bash
-picoclaw agent -m "Hello"
+friday agent -m "Hello"
 ```
 
 </details>
@@ -552,36 +552,36 @@ picoclaw agent -m "Hello"
 
 | Command                   | Description                   |
 | ------------------------- | ----------------------------- |
-| `picoclaw onboard`        | Initialize config & workspace |
-| `picoclaw agent -m "..."` | Chat with the agent           |
-| `picoclaw agent`          | Interactive chat mode         |
-| `picoclaw gateway`        | Start the gateway             |
-| `picoclaw status`         | Show status                   |
-| `picoclaw cron list`      | List all scheduled jobs       |
-| `picoclaw cron add ...`   | Add a scheduled job           |
+| `friday onboard`        | Initialize config & workspace |
+| `friday agent -m "..."` | Chat with the agent           |
+| `friday agent`          | Interactive chat mode         |
+| `friday gateway`        | Start the gateway             |
+| `friday status`         | Show status                   |
+| `friday cron list`      | List all scheduled jobs       |
+| `friday cron add ...`   | Add a scheduled job           |
 
 ### Scheduled Tasks / Reminders
 
-PicoClaw supports scheduled reminders and recurring tasks through the `cron` tool:
+Friday supports scheduled reminders and recurring tasks through the `cron` tool:
 
 - **One-time reminders**: "Remind me in 10 minutes" → triggers once after 10min
 - **Recurring tasks**: "Remind me every 2 hours" → triggers every 2 hours
 - **Cron expressions**: "Remind me at 9am daily" → uses cron expression
 
-Jobs are stored in `~/.picoclaw/workspace/cron/` and processed automatically.
+Jobs are stored in `~/.friday/workspace/cron/` and processed automatically.
 
 ## Troubleshooting
 
 ### Web search says "API"
 
-This is normal if you haven't configured a search API key yet. PicoClaw will provide helpful links for manual searching.
+This is normal if you haven't configured a search API key yet. Friday will provide helpful links for manual searching.
 
 To enable web search:
 
 1. **Option 1 (Recommended)**: Get a free API key at [https://brave.com/search/api](https://brave.com/search/api) (2000 free queries/month) for the best results.
 2. **Option 2 (No Credit Card)**: If you don't have a key, we automatically fall back to **DuckDuckGo** (no key required).
 
-Add the key to `~/.picoclaw/config.json` if using Brave:
+Add the key to `~/.friday/config.json` if using Brave:
 
 ```json
 {
@@ -607,7 +607,7 @@ Some providers (like Zhipu) have content filtering. Try rephrasing your query or
 
 ### Telegram bot says "Conflict: terminated by other getUpdates"
 
-This happens when another instance of the bot is running. Make sure only one `picoclaw gateway` is running at a time.
+This happens when another instance of the bot is running. Make sure only one `friday gateway` is running at a time.
 
 ---
 

@@ -1,8 +1,8 @@
-// PicoClaw - Ultra-lightweight personal AI agent
+// Friday - Ultra-lightweight personal AI assistant
 // Inspired by and based on nanobot: https://github.com/HKUDS/nanobot
 // License: MIT
 //
-// Copyright (c) 2026 PicoClaw contributors
+// Copyright (c) 2026 Friday contributors
 
 package agent
 
@@ -17,15 +17,15 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/sipeed/picoclaw/pkg/bus"
-	"github.com/sipeed/picoclaw/pkg/config"
-	"github.com/sipeed/picoclaw/pkg/constants"
-	"github.com/sipeed/picoclaw/pkg/logger"
-	"github.com/sipeed/picoclaw/pkg/providers"
-	"github.com/sipeed/picoclaw/pkg/session"
-	"github.com/sipeed/picoclaw/pkg/state"
-	"github.com/sipeed/picoclaw/pkg/tools"
-	"github.com/sipeed/picoclaw/pkg/utils"
+	"github.com/pro-utkarshM/friday/pkg/bus"
+	"github.com/pro-utkarshM/friday/pkg/config"
+	"github.com/pro-utkarshM/friday/pkg/constants"
+	"github.com/pro-utkarshM/friday/pkg/logger"
+	"github.com/pro-utkarshM/friday/pkg/providers"
+	"github.com/pro-utkarshM/friday/pkg/session"
+	"github.com/pro-utkarshM/friday/pkg/state"
+	"github.com/pro-utkarshM/friday/pkg/tools"
+	"github.com/pro-utkarshM/friday/pkg/utils"
 )
 
 type AgentLoop struct {

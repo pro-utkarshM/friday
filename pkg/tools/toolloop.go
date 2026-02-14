@@ -1,8 +1,8 @@
-// PicoClaw - Ultra-lightweight personal AI agent
+// Friday - Ultra-lightweight personal AI assistant
 // Inspired by and based on nanobot: https://github.com/HKUDS/nanobot
 // License: MIT
 //
-// Copyright (c) 2026 PicoClaw contributors
+// Copyright (c) 2026 Friday contributors
 
 package tools
 
@@ -11,9 +11,9 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/sipeed/picoclaw/pkg/logger"
-	"github.com/sipeed/picoclaw/pkg/providers"
-	"github.com/sipeed/picoclaw/pkg/utils"
+	"github.com/pro-utkarshM/friday/pkg/logger"
+	"github.com/pro-utkarshM/friday/pkg/providers"
+	"github.com/pro-utkarshM/friday/pkg/utils"
 )
 
 // ToolLoopConfig configures the tool execution loop.

@@ -1,8 +1,8 @@
-// PicoClaw - Ultra-lightweight personal AI agent
+// Friday - Ultra-lightweight personal AI assistant
 // Inspired by and based on nanobot: https://github.com/HKUDS/nanobot
 // License: MIT
 //
-// Copyright (c) 2026 PicoClaw contributors
+// Copyright (c) 2026 Friday contributors
 
 package providers
 
@@ -16,8 +16,8 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/sipeed/picoclaw/pkg/auth"
-	"github.com/sipeed/picoclaw/pkg/config"
+	"github.com/pro-utkarshM/friday/pkg/auth"
+	"github.com/pro-utkarshM/friday/pkg/config"
 )
 
 type HTTPProvider struct {

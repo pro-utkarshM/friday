@@ -8,10 +8,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/sipeed/picoclaw/pkg/logger"
-	"github.com/sipeed/picoclaw/pkg/providers"
-	"github.com/sipeed/picoclaw/pkg/skills"
-	"github.com/sipeed/picoclaw/pkg/tools"
+	"github.com/pro-utkarshM/friday/pkg/logger"
+	"github.com/pro-utkarshM/friday/pkg/providers"
+	"github.com/pro-utkarshM/friday/pkg/skills"
+	"github.com/pro-utkarshM/friday/pkg/tools"
 )
 
 type ContextBuilder struct {
@@ -26,7 +26,7 @@ func getGlobalConfigDir() string {
 	if err != nil {
 		return ""
 	}
-	return filepath.Join(home, ".picoclaw")
+	return filepath.Join(home, ".friday")
 }
 
 func NewContextBuilder(workspace string) *ContextBuilder {

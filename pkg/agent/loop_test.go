@@ -7,10 +7,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/sipeed/picoclaw/pkg/bus"
-	"github.com/sipeed/picoclaw/pkg/config"
-	"github.com/sipeed/picoclaw/pkg/providers"
-	"github.com/sipeed/picoclaw/pkg/tools"
+	"github.com/pro-utkarshM/friday/pkg/bus"
+	"github.com/pro-utkarshM/friday/pkg/config"
+	"github.com/pro-utkarshM/friday/pkg/providers"
+	"github.com/pro-utkarshM/friday/pkg/tools"
 )
 
 // mockProvider is a simple mock LLM provider for testing
